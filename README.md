@@ -7,5 +7,8 @@ Make sure you have Node installed.
 Download or fork this repository.
 
 In the project directory, install the necessary packages locally by running: `npm install`
+
 Next, start up a local server: `npm start`
+
 Your app will be running at http://localhost:3000.
+
