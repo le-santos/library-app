@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 const BtnStyled = styled.button`
-  padding: 10px;
+  padding: 0.5em;
   margin: 4px 2px;
   text-align: center;
   background-color: ${(props) => props.color};
@@ -10,12 +10,18 @@ const BtnStyled = styled.button`
   border-radius: 5px;
   color: white;
   text-decoration: none;
-  font-size: 16px;
+  font-size: 1em;
   transition-duration: 0.3s;
   cursor: pointer;
+  outline: currentColor;
   &:hover {
     background-color: white;
     color: ${(props) => props.color};
+  }
+  &:active {
+    box-shadow: 0px 0px 0px 4px;
+    transform: scale(1.05, 1.05);
+    transition-duration: 0.2s;
   }
 `;
 

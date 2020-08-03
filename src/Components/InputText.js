@@ -4,7 +4,7 @@ import styled from "styled-components";
 const InputTextStyled = styled.input`
   display: block;
   width: 100%;
-  margin: 0.4em 0;
+  margin: 1em 0;
   outline: none;
 `;
 

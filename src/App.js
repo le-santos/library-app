@@ -82,12 +82,13 @@ class App extends Component {
   };
 
   removeLibraryItem = (event) => {
+    if (!window.confirm("Delete library item?")) return;
+
     const listItemId = event.target.id,
       listCopy = [...this.state.libraryList],
       itemIndex = listCopy.findIndex((item) => item.id === listItemId);
 
     listCopy.splice(itemIndex, 1);
-
     this.setState({ libraryList: [...listCopy] });
   };
 
@@ -135,7 +136,7 @@ class App extends Component {
         </Header>
         <SideNav click={this.toggleFormVisibility} childColor={"#008cba"} />
         <MainArea>
-          <h2>Library List</h2>
+          <h2 style={{ margin: "1em" }}>Library List</h2>
           {LibraryListItems}
         </MainArea>
         <NewItemForm visible={this.state.isFormVisible}>
