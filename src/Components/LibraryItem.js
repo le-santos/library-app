@@ -13,7 +13,12 @@ function LibraryItem(props) {
     <ItemDiv>
       <h3>{props.title}</h3>
       <p>{`Music: ${props.title}, Composer: ${props.composer}, Style: ${props.style}`}</p>
-      <Button name={"Remove"} color={props.childColor}></Button>
+      <Button
+        name={"Remove"}
+        color={props.childColor}
+        clicked={props.removeClick}
+        id={props.itemId}
+      ></Button>
     </ItemDiv>
   );
 }

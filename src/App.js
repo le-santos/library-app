@@ -57,7 +57,6 @@ class App extends Component {
   };
 
   toggleFormVisibility = () => {
-    console.log("hi");
     this.setState({ isFormVisible: !this.state.isFormVisible });
   };
 
@@ -82,8 +81,18 @@ class App extends Component {
     this.toggleFormVisibility();
   };
 
-  submitFormFields = (e) => {
-    e.preventDefault();
+  removeLibraryItem = (event) => {
+    const listItemId = event.target.id,
+      listCopy = [...this.state.libraryList],
+      itemIndex = listCopy.findIndex((item) => item.id === listItemId);
+
+    listCopy.splice(itemIndex, 1);
+
+    this.setState({ libraryList: [...listCopy] });
+  };
+
+  submitFormFields = (event) => {
+    event.preventDefault();
 
     if (
       this.state.formFields.title === "" ||
@@ -102,7 +111,6 @@ class App extends Component {
     listCopy.push(newItem);
 
     this.setState({ libraryList: [...listCopy] });
-    console.log(this.state.libraryList);
     this.resetFormFields();
     this.toggleFormVisibility();
   };
@@ -115,6 +123,8 @@ class App extends Component {
         style={item.style}
         key={item.id}
         childColor={"#dc3545"}
+        removeClick={this.removeLibraryItem}
+        itemId={item.id}
       />
     ));
 
