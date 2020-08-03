@@ -12,7 +12,12 @@ import InputSelect from "./Components/InputSelect";
 class App extends Component {
   state = {
     libraryList: [
-      { title: "Titulo", composer: "Comp", style: "Sty", id: "00000" },
+      {
+        title: "Piece title",
+        composer: "Composer name",
+        style: "Music Style",
+        id: "00000",
+      },
     ],
     formFields: {
       title: "",
