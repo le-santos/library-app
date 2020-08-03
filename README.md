@@ -2,8 +2,7 @@
 React Project made with [Create React App](https://github.com/facebook/create-react-app).
 
 ## How to Install?
-
-Make sure you have Node installed. 
+ 
 Download or fork this repository.
 
 In the project directory, install the necessary packages locally by running: `npm install`
