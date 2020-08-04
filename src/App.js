@@ -4,7 +4,7 @@ import NewItemForm from "./Components/NewItemForm";
 import Header from "./Components/Header";
 import SideNav from "./Components/SideNav";
 import MainArea from "./Components/MainArea";
-import LibraryItem from "./Components/LibraryItem";
+import LibraryList from "./Components/LibraryList";
 import Button from "./Components/Button";
 import InputText from "./Components/InputText";
 import InputSelect from "./Components/InputSelect";
@@ -117,18 +117,6 @@ class App extends Component {
   };
 
   render() {
-    const LibraryListItems = this.state.libraryList.map((item) => (
-      <LibraryItem
-        title={item.title}
-        composer={item.composer}
-        style={item.style}
-        key={item.id}
-        childColor={"#dc3545"}
-        removeClick={this.removeLibraryItem}
-        itemId={item.id}
-      />
-    ));
-
     return (
       <div className="App">
         <Header>
@@ -137,7 +125,10 @@ class App extends Component {
         <SideNav click={this.toggleFormVisibility} childColor={"#008cba"} />
         <MainArea>
           <h2 style={{ margin: "1em" }}>Library List</h2>
-          {LibraryListItems}
+          <LibraryList
+            libraryList={this.state.libraryList}
+            removeLibraryItem={this.removeLibraryItem}
+          />
         </MainArea>
         <NewItemForm visible={this.state.isFormVisible}>
           <InputText
