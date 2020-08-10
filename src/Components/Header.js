@@ -1,4 +1,4 @@
-import React from "react";
+import React, {PureComponent} from "react";
 import styled from "styled-components";
 
 const HeaderStyled = styled.header`
@@ -9,8 +9,10 @@ const HeaderStyled = styled.header`
   border: 1px solid rgba(0, 0, 0, 0.125);
 `;
 
-function Header(props) {
-  return <HeaderStyled>{props.children}</HeaderStyled>;
+class Header extends PureComponent {
+  render(){
+    return <HeaderStyled>{this.props.children}</HeaderStyled>;
+  }
 }
 
 export default Header;
