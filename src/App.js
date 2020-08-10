@@ -1,13 +1,10 @@
 import React, { Component } from "react";
 import "./App.css";
-import NewItemForm from "./Components/NewItemForm";
 import Header from "./Components/Header";
 import SideNav from "./Components/SideNav";
 import MainArea from "./Components/MainArea";
 import LibraryList from "./Components/LibraryList";
-import Button from "./Components/Button";
-import InputText from "./Components/InputText";
-import InputSelect from "./Components/InputSelect";
+import AddItemForm from "./Components/AddItemForm";
 
 class App extends Component {
   state = {
@@ -23,17 +20,17 @@ class App extends Component {
       title: "",
       composer: "",
       style: "",
-      styleTypes: [
-        null,
-        "Renaissance",
-        "Baroque",
-        "Romantic",
-        "Modern",
-        "Brasileira",
-        "Popular",
-        "None",
-      ],
     },
+    styleTypes: [
+      null,
+      "Renaissance",
+      "Baroque",
+      "Romantic",
+      "Modern",
+      "Brasileira",
+      "Popular",
+      "None",
+    ],
     isFormVisible: false,
   };
 
@@ -47,11 +44,20 @@ class App extends Component {
     };
   };
 
+  componentDidMount(){
+    console.log("App.js - Did mount");
+  }
+
+  componentDidUpdate() {
+    console.log("App.js - Did Update");
+  }
+
   handleInputChange = (event) => {
     const value = event.target.value,
       fields = { ...this.state.formFields },
-      fieldType = event.target.id;
+      fieldType = event.target.id.toLowerCase();
 
+    console.log(fieldType)  
     fields[fieldType] = value;
     this.setState({ formFields: fields });
   };
@@ -65,16 +71,6 @@ class App extends Component {
       title: "",
       composer: "",
       style: "",
-      styleTypes: [
-        null,
-        "Renaissance",
-        "Baroque",
-        "Romantic",
-        "Modern",
-        "Brasileira",
-        "Popular",
-        "None",
-      ],
     };
 
     this.setState({ formFields: clearedFields });
@@ -130,38 +126,18 @@ class App extends Component {
             removeLibraryItem={this.removeLibraryItem}
           />
         </MainArea>
-        <NewItemForm visible={this.state.isFormVisible}>
-          <InputText
-            value={this.state.formFields.title}
-            id={"title"}
-            changed={this.handleInputChange}
-            text="Title"
-          />
-          <InputText
-            value={this.state.formFields.composer}
-            changed={this.handleInputChange}
-            id={"composer"}
-            text="Composer"
-          />
-          <InputSelect
-            value={this.state.formFields.style}
-            changed={this.handleInputChange}
-            id={"style"}
-            text="Style"
-            options={this.state.formFields.styleTypes}
-          />
-          <Button
-            name={"Add music"}
-            clicked={this.submitFormFields}
-            color={"#008cba"}
-          />
-          <Button
-            name={"Cancel"}
-            type={"reset"}
-            color={"#dc3545"}
-            clicked={this.resetFormFields}
-          />
-        </NewItemForm>
+        <AddItemForm 
+          visible={this.state.isFormVisible}
+          textInputs={["Title", "Composer"]} 
+          textValues={[this.state.formFields.title, this.state.formFields.composer]}
+          selectLabel={"Style"}
+          selectInput={this.state.styleTypes}
+          selectValue={this.state.formFields.style}
+          changed={this.handleInputChange}
+          clickSubmit={this.submitFormFields}
+          clickCancel={this.resetFormFields}
+        >
+        </AddItemForm>
       </div>
     );
   }
