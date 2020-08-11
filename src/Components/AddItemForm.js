@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React from "react";
 import InputText from "./InputText";
 import InputSelect from "./InputSelect";
 import styled from "styled-components";
@@ -14,7 +14,7 @@ const Form = styled.form`
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.55);
   border-radius: 6px;
   position: absolute;
-  left: ${(props) => (props.visible ? "10px" : "-500px")};
+  left: -500px;
   bottom: 10px;
   z-index: 4;
   transition: left 0.7s;
@@ -37,12 +37,10 @@ function AddItemForm(props) {
     changed={props.changed}
     value={props.selectValue}
     id={props.selectLabel}
-    />
+  />;
   
-  useEffect( () => console.log(props.textValues, props.selectValue))
-
   return (
-    <Form className="new-item-form" visible={props.visible}>
+    <Form className="new-item-form" visible={props.visible} style={{left: "10px"}}>
       {textInputs}
       {selectInput}
       <Button

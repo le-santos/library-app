@@ -44,20 +44,11 @@ class App extends Component {
     };
   };
 
-  componentDidMount(){
-    console.log("App.js - Did mount");
-  }
-
-  componentDidUpdate() {
-    console.log("App.js - Did Update");
-  }
-
   handleInputChange = (event) => {
     const value = event.target.value,
       fields = { ...this.state.formFields },
       fieldType = event.target.id.toLowerCase();
 
-    console.log(fieldType)  
     fields[fieldType] = value;
     this.setState({ formFields: fields });
   };
@@ -113,6 +104,21 @@ class App extends Component {
   };
 
   render() {
+    const mainForm = (this.state.isFormVisible 
+      && <AddItemForm 
+          visible={this.state.isFormVisible}
+          textInputs={["Title", "Composer"]} 
+          textValues={[this.state.formFields.title, this.state.formFields.composer]}
+          selectLabel={"Style"}
+          selectInput={this.state.styleTypes}
+          selectValue={this.state.formFields.style}
+          changed={this.handleInputChange}
+          clickSubmit={this.submitFormFields}
+          clickCancel={this.resetFormFields}
+        />
+
+      )
+
     return (
       <div className="App">
         <Header>
@@ -126,18 +132,7 @@ class App extends Component {
             removeLibraryItem={this.removeLibraryItem}
           />
         </MainArea>
-        <AddItemForm 
-          visible={this.state.isFormVisible}
-          textInputs={["Title", "Composer"]} 
-          textValues={[this.state.formFields.title, this.state.formFields.composer]}
-          selectLabel={"Style"}
-          selectInput={this.state.styleTypes}
-          selectValue={this.state.formFields.style}
-          changed={this.handleInputChange}
-          clickSubmit={this.submitFormFields}
-          clickCancel={this.resetFormFields}
-        >
-        </AddItemForm>
+        {mainForm}
       </div>
     );
   }
