@@ -3,9 +3,9 @@ import LibraryItem from "./LibraryItem";
 
 const LibraryList = (props) => {
   
-  const respLink = {link: "#"};
   
-  const getData = (searchTerm) => {  
+  const getData = (searchTerm) => {
+    const respLink = {link: "#"};  
     let url = "https://en.wikipedia.org/w/api.php";
 
     const params = {
@@ -27,8 +27,10 @@ const LibraryList = (props) => {
       .then((data) => {respLink.link = data[3][0]})
       .catch((error) => console.log(error));
 
-    setTimeout( () =>{
-      console.log(respLink.link)},500);
+      console.log(respLink.link)
+
+    return respLink.link
+;
   }
 
   return ( 
@@ -41,8 +43,8 @@ const LibraryList = (props) => {
         childColor={"#dc3545"}
         removeClick={item.removeLibraryItem}
         itemId={item.id}
-        requestData={() => getData(item.composer)}
-        linkRef={respLink.link}
+        // toggleInfo={}
+        linkRef={getData(item.composer)}
       />
     ))
   )    

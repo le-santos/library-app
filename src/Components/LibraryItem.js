@@ -28,7 +28,7 @@ const titleStyle = {"gridArea": "title"},
   textStyle = {"gridArea": "text"},
   removeStyle = {"gridArea": "delete"},
   infoStyle = {"gridArea": "info"},
-  linkStyle = {"gridArea": "link", "display": "inline-block"};
+  linkStyle = {"gridArea": "link", "display": "none"};
 
 function LibraryItem(props) {
   return (
@@ -51,7 +51,7 @@ function LibraryItem(props) {
         color={"#0c5460"} 
         id={`btn-info-${props.itemId}`}
         style={infoStyle}
-        clicked={props.requestData}
+        clicked={props.toggleInfo}
       ></Button>
       <a 
         href={props.linkRef} 
