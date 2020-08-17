@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import "./App.css";
 import Header from "./Components/Header";
 import SideNav from "./Components/SideNav";
 import MainArea from "./Components/MainArea";
@@ -104,20 +103,22 @@ class App extends Component {
   };
 
   render() {
-    const mainForm = (this.state.isFormVisible 
-      && <AddItemForm 
-          visible={this.state.isFormVisible}
-          textInputs={["Title", "Composer"]} 
-          textValues={[this.state.formFields.title, this.state.formFields.composer]}
-          selectLabel={"Style"}
-          selectInput={this.state.styleTypes}
-          selectValue={this.state.formFields.style}
-          changed={this.handleInputChange}
-          clickSubmit={this.submitFormFields}
-          clickCancel={this.resetFormFields}
-        />
-
-      )
+    const mainForm = this.state.isFormVisible && (
+      <AddItemForm
+        visible={this.state.isFormVisible}
+        textInputs={["Title", "Composer"]}
+        textValues={[
+          this.state.formFields.title,
+          this.state.formFields.composer,
+        ]}
+        selectLabel={"Style"}
+        selectInput={this.state.styleTypes}
+        selectValue={this.state.formFields.style}
+        changed={this.handleInputChange}
+        clickSubmit={this.submitFormFields}
+        clickCancel={this.resetFormFields}
+      />
+    );
 
     return (
       <div className="App">

@@ -1,8 +1,9 @@
-import React, {PureComponent} from "react";
+import React, { PureComponent } from "react";
 import styled from "styled-components";
 
 const HeaderStyled = styled.header`
   display: block;
+  text-align: center;
   padding: 0.75rem 1.1rem;
   color: #0c5460;
   background-color: #bee5eb;
@@ -10,7 +11,7 @@ const HeaderStyled = styled.header`
 `;
 
 class Header extends PureComponent {
-  render(){
+  render() {
     return <HeaderStyled>{this.props.children}</HeaderStyled>;
   }
 }
