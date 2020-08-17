@@ -5,6 +5,10 @@ const MainDiv = styled.div`
   float: right;
   width: 77%;
   text-align: left;
+  @media (max-width: 500px) {
+    width: 100%;
+    text-align: center;
+  }
 `;
 
 function MainArea(props) {

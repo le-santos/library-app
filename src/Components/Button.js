@@ -8,14 +8,14 @@ const BtnStyled = styled.button`
   background-color: ${(props) => props.color};
   border: 2px solid ${(props) => props.color};
   border-radius: 5px;
-  color: white;
+  color: #f8f8f8;
   text-decoration: none;
   font-size: 1em;
   transition-duration: 0.3s;
   cursor: pointer;
   outline: currentColor;
   &:hover {
-    background-color: white;
+    background-color: #e8dfd8;
     color: ${(props) => props.color};
   }
   &:active {

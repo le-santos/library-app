@@ -13,6 +13,7 @@ const ItemDiv = styled.div`
   place-items: center start;
   gap: 10px;
   box-shadow: 1px 2px 4px;
+  background-color: #e8dfd8;
   @media (max-width: 500px) {
     display: grid;
     grid-template-areas:

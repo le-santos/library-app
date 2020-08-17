@@ -4,6 +4,7 @@ import SideNav from "./Components/SideNav";
 import MainArea from "./Components/MainArea";
 import LibraryList from "./Components/LibraryList";
 import AddItemForm from "./Components/AddItemForm";
+import ButtonAdd from "./Components/ButtonAdd";
 
 class App extends Component {
   state = {
@@ -125,12 +126,17 @@ class App extends Component {
         <Header>
           <h1>My Sheet Music Library</h1>
         </Header>
-        <SideNav click={this.toggleFormVisibility} childColor={"#008cba"} />
+        <SideNav click={this.toggleFormVisibility} childColor={"#0c5460"} />
         <MainArea>
           <h2 style={{ margin: "1em" }}>Library List</h2>
           <LibraryList
             libraryList={this.state.libraryList}
             removeLibraryItem={this.removeLibraryItem}
+          />
+          <ButtonAdd
+            name={"+"}
+            color={"#0C5460"}
+            clicked={this.toggleFormVisibility}
           />
         </MainArea>
         {mainForm}

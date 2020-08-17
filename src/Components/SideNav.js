@@ -11,8 +11,11 @@ const NavStyled = styled.nav`
   height: 100%;
   margin-left: -1rem;
   padding-top: 9em;
-  background-color: #6c757d;
+  background-color: #e8dfd8;
   text-align: center;
+  @media (max-width: 500px) {
+    display: none;
+  }
 `;
 
 function SideNav(props) {

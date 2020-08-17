@@ -5,8 +5,8 @@ const HeaderStyled = styled.header`
   display: block;
   text-align: center;
   padding: 0.75rem 1.1rem;
-  color: #0c5460;
-  background-color: #bee5eb;
+  color: #e8dfd8;
+  background-color: #0c5460;
   border: 1px solid rgba(0, 0, 0, 0.125);
 `;
 
