@@ -136,6 +136,7 @@ class App extends Component {
           <ButtonAdd
             name={"+"}
             color={"#0C5460"}
+            hoverColor={"#f8f8f8"}
             clicked={this.toggleFormVisibility}
           />
         </MainArea>

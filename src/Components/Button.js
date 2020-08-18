@@ -15,7 +15,7 @@ const BtnStyled = styled.button`
   cursor: pointer;
   outline: currentColor;
   &:hover {
-    background-color: #e8dfd8;
+    background-color: ${(props) => props.hoverColor};
     color: ${(props) => props.color};
   }
   &:active {
@@ -32,6 +32,7 @@ function Button(props) {
       type={props.type}
       color={props.color}
       id={props.id}
+      hoverColor={props.hoverColor}
     >
       {props.name}
     </BtnStyled>

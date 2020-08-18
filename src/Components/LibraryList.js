@@ -9,7 +9,7 @@ const LibraryList = (props) => {
       style={item.style}
       key={item.id}
       childColor={"#dc3545"}
-      removeClick={item.removeLibraryItem}
+      removeClick={props.removeLibraryItem}
       itemId={item.id}
     />
   ));

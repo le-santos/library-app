@@ -8,7 +8,7 @@ const ButtonStyled = styled.button`
     position: fixed;
     bottom: 20px;
     right: 20px;
-    padding: 0px 12px;
+    padding: 0px 16px;
     text-align: center;
     background-color: ${(props) => props.color};
     border: 2px solid ${(props) => props.color};
@@ -21,7 +21,7 @@ const ButtonStyled = styled.button`
     cursor: pointer;
     outline: currentColor;
     &:hover {
-      background-color: #f8f8f8;
+      background-color: ${(props) => props.hoverColor};
       color: ${(props) => props.color};
     }
     &:active {

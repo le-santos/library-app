@@ -25,6 +25,7 @@ function SideNav(props) {
         clicked={props.click}
         name={"Add new item"}
         color={props.childColor}
+        hoverColor={"#e8dfd8"}
       ></Button>
     </NavStyled>
   );

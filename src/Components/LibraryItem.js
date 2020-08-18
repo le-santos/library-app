@@ -27,7 +27,7 @@ const ItemDiv = styled.div`
 
 const titleStyle = { gridArea: "title" },
   textStyle = { gridArea: "text" },
-  removeStyle = { gridArea: "delete" },
+  removeStyle = { gridArea: "delete", placeSelf: "start end" },
   infoStyle = { gridArea: "info" },
   linkStyle = { gridArea: "link" };
 
@@ -83,7 +83,7 @@ function LibraryItem(props) {
 
   const infoButtonText = infoState.visibility
     ? "Hide Composer Info"
-    : "Show Composer Info";
+    : "Find Composer Info";
 
   return (
     <ItemDiv>
@@ -93,20 +93,24 @@ function LibraryItem(props) {
         {props.composer},<b>{" Style: "}</b>
         {props.style}
       </p>
-      <Button
-        name={"Remove"}
-        color={props.childColor}
-        clicked={props.removeClick}
-        id={props.itemId}
-        style={removeStyle}
-      ></Button>
-      <Button
-        name={infoButtonText}
-        color={"#0c5460"}
-        id={`btn-info-${props.itemId}`}
-        style={infoStyle}
-        clicked={toggleInfoState}
-      ></Button>
+      <span style={removeStyle}>
+        <Button
+          name={"Remove"}
+          color={props.childColor}
+          hoverColor={"#e8dfd8"}
+          clicked={props.removeClick}
+          id={props.itemId}
+        ></Button>
+      </span>
+      <span style={infoStyle}>
+        <Button
+          name={infoButtonText}
+          color={"#0c5460"}
+          hoverColor={"#e8dfd8"}
+          id={`btn-info-${props.itemId}`}
+          clicked={toggleInfoState}
+        ></Button>
+      </span>
       {infoLink}
     </ItemDiv>
   );

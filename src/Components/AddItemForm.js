@@ -21,37 +21,45 @@ const Form = styled.form`
 `;
 
 function AddItemForm(props) {
-
-  const textInputs = (props.textInputs).map( (el, index) =>
-   <InputText 
-      text={el} 
-      key={`${el}-input`} 
+  const textInputs = props.textInputs.map((el, index) => (
+    <InputText
+      text={el}
+      key={`${el}-input`}
       id={el}
       changed={props.changed}
-      value={props.textValues[index]} /> 
-     );
-  
-  const selectInput = <InputSelect 
-    text={props.selectLabel}
-    options={props.selectInput}
-    changed={props.changed}
-    value={props.selectValue}
-    id={props.selectLabel}
-  />;
-  
+      value={props.textValues[index]}
+    />
+  ));
+
+  const selectInput = (
+    <InputSelect
+      text={props.selectLabel}
+      options={props.selectInput}
+      changed={props.changed}
+      value={props.selectValue}
+      id={props.selectLabel}
+    />
+  );
+
   return (
-    <Form className="new-item-form" visible={props.visible} style={{left: "10px"}}>
+    <Form
+      className="new-item-form"
+      visible={props.visible}
+      style={{ left: "10px" }}
+    >
       {textInputs}
       {selectInput}
       <Button
         name={"Add music"}
         clicked={props.clickSubmit}
-        color={"#008cba"}
+        color={"#0c5460"}
+        hoverColor={"#f1f9fa"}
       />
       <Button
         name={"Cancel"}
         type={"reset"}
         color={"#dc3545"}
+        hoverColor={"#f1f9fa"}
         clicked={props.clickCancel}
       />
     </Form>
