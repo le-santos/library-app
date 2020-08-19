@@ -8,7 +8,7 @@ Check here: https://sheet-music-library-react.vercel.app/
 
 ## How to Install?
  
-Download or fork this repository.
+Download or clone this repository.
 
 In the project directory, install the necessary packages locally by running: 
 
