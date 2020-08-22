@@ -6,6 +6,9 @@ After the first version made in pure Javascript (check on my [CodePen](https://c
 
 Check here: https://sheet-music-library-react.vercel.app/ 
 
+<img src="./screenshots/Screenshot-desktop.png" width="600px" height="auto" margin="auto" /> <img src="./screenshots/Screenshot-mobile.png" height="360px" width="auto" margin="auto" />
+
+
 ## How to Install?
  
 Download or clone this repository.
