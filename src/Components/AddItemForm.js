@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import InputText from "./InputText";
 import InputSelect from "./InputSelect";
 import styled from "styled-components";
@@ -13,14 +13,19 @@ const Form = styled.form`
   background-color: #f1f9fa;
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.55);
   border-radius: 6px;
-  position: absolute;
-  left: -500px;
+  position: fixed;
   bottom: 10px;
+  left: 10px;
   z-index: 4;
-  transition: left 0.7s;
+  opacity: 0;
+  transition: opacity 0.7s;
 `;
 
 function AddItemForm(props) {
+  useEffect(() => {
+    document.querySelector(".new-item-form").style.opacity = "1";
+  });
+
   const textInputs = props.textInputs.map((el, index) => (
     <InputText
       text={el}
@@ -42,11 +47,7 @@ function AddItemForm(props) {
   );
 
   return (
-    <Form
-      className="new-item-form"
-      visible={props.visible}
-      style={{ left: "10px" }}
-    >
+    <Form className="new-item-form" visible={props.visible}>
       {textInputs}
       {selectInput}
       <Button
