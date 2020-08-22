@@ -31,10 +31,8 @@ const titleStyle = { gridArea: "title" },
   infoStyle = { gridArea: "info" },
   linkStyle = { gridArea: "link" };
 
-let wikiInfo = { link: "#" };
-
 //function for fetching data from wikipedia
-const getData = async (searchTerm) => {
+const getData = async (searchTerm, setData) => {
   let url = "https://en.wikipedia.org/w/api.php";
 
   const params = {
@@ -53,18 +51,14 @@ const getData = async (searchTerm) => {
 
   await fetch(url)
     .then((response) => response.json())
-    .then((data) => {
-      wikiInfo.link = data[3][0];
-    })
+    .then((data) => setData(data[3][0]))
     .catch((error) => console.log(error));
-
-  console.log(wikiInfo.link);
-  return wikiInfo.link;
 };
 
 //Lib Item Functional Component
 function LibraryItem(props) {
   const [infoState, setInfoState] = useState({ visibility: false });
+  const [linkUrl, setLinkUrl] = useState("");
 
   const toggleInfoState = () => {
     setInfoState({ visibility: !infoState.visibility });
@@ -72,11 +66,11 @@ function LibraryItem(props) {
 
   useEffect(() => {
     console.log("Lib item mount or Update");
-    getData(props.composer);
+    getData(props.composer, setLinkUrl);
   }, [props.composer]);
 
   const infoLink = infoState.visibility ? (
-    <a href={wikiInfo.link} id={`wikiSearch-${props.itemId}`} style={linkStyle}>
+    <a href={linkUrl} id={`wikiSearch-${props.itemId}`} style={linkStyle}>
       Wikipedia: {props.composer}
     </a>
   ) : null;
