@@ -13,6 +13,8 @@ Check here: https://sheet-music-library-react.vercel.app/
  
 Download or clone this repository.
 
+Make sure you have installed node version >= 10. You may check with: `node -v`
+
 In the project directory, install the necessary packages locally by running: 
 
 ```
