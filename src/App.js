@@ -8,14 +8,7 @@ import ButtonAdd from "./Components/ButtonAdd";
 
 class App extends Component {
   state = {
-    libraryList: [
-      {
-        title: "Piece title",
-        composer: "Composer name",
-        style: "Music Style",
-        id: "00000",
-      },
-    ],
+    libraryList: [],
     formFields: {
       title: "",
       composer: "",
@@ -121,6 +114,18 @@ class App extends Component {
       />
     );
 
+    const shouldRenderLibraryList =
+      this.state.libraryList.length === 0 ? (
+        <p style={{ margin: "1.2em" }}>
+          List is empty. Create your first entry.
+        </p>
+      ) : (
+        <LibraryList
+          libraryList={this.state.libraryList}
+          removeLibraryItem={this.removeLibraryItem}
+        />
+      );
+
     return (
       <div className="App">
         <Header>
@@ -129,10 +134,7 @@ class App extends Component {
         <SideNav click={this.toggleFormVisibility} childColor={"#0c5460"} />
         <MainArea>
           <h2 style={{ margin: "1em" }}>Library List</h2>
-          <LibraryList
-            libraryList={this.state.libraryList}
-            removeLibraryItem={this.removeLibraryItem}
-          />
+          {shouldRenderLibraryList}
           <ButtonAdd
             name={"+"}
             color={"#0C5460"}
