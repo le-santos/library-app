@@ -43,7 +43,8 @@ There is a responsive version also, where the **Add new item button** is replace
 + [React 16.13.1](https://github.com/facebook/react/) -> [Create React App 3.4.1](https://github.com/facebook/create-react-app)
 + [Styled Components 5.1.1](https://styled-components.com/)
 + [Eslint](https://eslint.org/docs/user-guide/getting-started)
-+ [Prettier](https://github.com/prettier/prettier) 
++ [Prettier](https://github.com/prettier/prettier)
++ [Nano ID](https://github.com/ai/nanoid/)
 + [Open Search API](https://www.mediawiki.org/wiki/API:Opensearch)
 
 
