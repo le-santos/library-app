@@ -5,6 +5,7 @@ import MainArea from "./Components/MainArea";
 import LibraryList from "./Components/LibraryList";
 import AddItemForm from "./Components/AddItemForm";
 import ButtonAdd from "./Components/ButtonAdd";
+import { nanoid } from "nanoid";
 
 class App extends Component {
   state = {
@@ -33,7 +34,7 @@ class App extends Component {
       composer,
       style,
       status: "",
-      id: (Math.random().toFixed(6) * 1000000).toString(),
+      id: nanoid(12),
     };
   };
 
