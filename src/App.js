@@ -76,12 +76,7 @@ class App extends Component {
   submitFormFields = (event) => {
     event.preventDefault();
 
-    if (
-      this.state.formFields.title === "" ||
-      this.state.formFields.composer === "" ||
-      this.state.formFields.style === ""
-    )
-      return;
+    if (Object.values(this.state.formFields).includes("")) return;
 
     const newItem = this.NewSheetMusic(
       this.state.formFields.title,

@@ -65,7 +65,6 @@ function LibraryItem(props) {
   };
 
   useEffect(() => {
-    console.log("Lib item mount or Update");
     getData(props.composer, setLinkUrl);
   }, [props.composer]);
 
