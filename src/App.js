@@ -5,6 +5,7 @@ import MainArea from "./Components/MainArea";
 import LibraryList from "./Components/LibraryList";
 import AddItemForm from "./Components/AddItemForm";
 import ButtonAdd from "./Components/ButtonAdd";
+import ListHeader from "./Components/ListHeader";
 import { nanoid } from "nanoid";
 
 class App extends Component {
@@ -26,6 +27,7 @@ class App extends Component {
       "None",
     ],
     isFormVisible: false,
+    listOrder: "",
   };
 
   NewSheetMusic = (title, composer, style) => {
@@ -92,6 +94,33 @@ class App extends Component {
     this.toggleFormVisibility();
   };
 
+  sortList = (list, prop) => {
+    list.sort((a, b) => {
+      let itemA = a[prop].toUpperCase();
+      let itemB = b[prop].toUpperCase();
+
+      if (itemA < itemB) {
+        return -1;
+      } else if (itemA > itemB) {
+        return 1;
+      } else {
+        return 0;
+      }
+    });
+  };
+
+  handleListOrder = (event) => {
+    let value = event.target.value;
+
+    if (this.state.libraryList.length === 0 || value === "") {
+      return;
+    }
+
+    const listCopy = [...this.state.libraryList];
+    this.sortList(listCopy, value);
+    this.setState({ libraryList: [...listCopy] });
+  };
+
   render() {
     const mainForm = this.state.isFormVisible && (
       <AddItemForm
@@ -129,7 +158,10 @@ class App extends Component {
         </Header>
         <SideNav click={this.toggleFormVisibility} childColor={"#0c5460"} />
         <MainArea>
-          <h2 style={{ margin: "1em" }}>Library List</h2>
+          <ListHeader
+            orderOptions={["", ...Object.keys(this.state.formFields)]}
+            orderChanged={this.handleListOrder}
+          />
           {shouldRenderLibraryList}
           <ButtonAdd
             name={"+"}

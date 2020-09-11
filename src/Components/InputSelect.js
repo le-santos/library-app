@@ -2,7 +2,6 @@ import React from "react";
 import styled from "styled-components";
 
 const SelectStyled = styled.select`
-  display: block;
   width: 100%;
   margin: 1em 0;
   outline: none;
@@ -14,7 +13,7 @@ function InputSelect(props) {
   ));
 
   return (
-    <div>
+    <React.Fragment>
       <label>{props.text}</label>
       <SelectStyled
         onChange={props.changed}
@@ -24,7 +23,7 @@ function InputSelect(props) {
       >
         {optionListArray}
       </SelectStyled>
-    </div>
+    </React.Fragment>
   );
 }
 
