@@ -10,7 +10,7 @@ const InputTextStyled = styled.input`
 
 function InputText(props) {
   return (
-    <div>
+    <React.Fragment>
       <label className={"text-input"}>{props.text}</label>
       <InputTextStyled
         onChange={props.changed}
@@ -18,7 +18,7 @@ function InputText(props) {
         id={props.id}
         required
       ></InputTextStyled>
-    </div>
+    </React.Fragment>
   );
 }
 
